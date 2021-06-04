@@ -10,6 +10,7 @@ Valid options:
     -b, --browser <value>    : overwrite which browser needs to be installed
     -x, --xorg <value>       : overwrite folder of xserver to search for existing config files
     -o, --octoprint <value>  : overwrite location of octoprint config yaml file
+    -c, --container <value>  : name or ID of octoprint docker container
 "
 
 POSITIONAL=()
@@ -42,6 +43,11 @@ do
 		;;
 		-o|--octoprint)
 		OCTOPRINT_CONFIG="$2"
+		shift # past argument
+		shift # past value
+		;;
+		-c|--container)
+		DOCKER_CONTAINER="$2"
 		shift # past argument
 		shift # past value
 		;;

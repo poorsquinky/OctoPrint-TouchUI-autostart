@@ -1,8 +1,9 @@
 #!/bin/bash
 source $DIR/functions/do_exit
 source $DIR/functions/color
+source $DIR/functions/octo_host_cmd
 
-if [ -z $(find /home/ -type f -name 'touchui.bundled.js*') ]
+if [ -z $(octo_host_cmd find /octoprint/ /home/ -type f -name 'touchui.bundled.js*' 2>/dev/null) ]
 then
 	echo ""
 	echo -e "$(color 'red' 'TouchUI was not found!')"
